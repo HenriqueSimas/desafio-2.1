@@ -31,7 +31,6 @@ function perguntar() {
 
         rl.question('Digite o valor a ser convertido: ', (valor) => {
           try {
-            // Substitua a vírgula por um ponto para garantir que o valor seja reconhecido corretamente
             const valorFormatado = valor.replace(',', '.');
             const valorNumerico = conversor.validarValor(valorFormatado);
             conversor.converter(moedaOrigem.toUpperCase(), moedaDestino.toUpperCase(), valorNumerico)
@@ -44,23 +43,23 @@ function perguntar() {
                   'Valor Convertido': `${resultado.valorConvertido} ${moedaDestino.toUpperCase()}`,
                   'Taxa de Conversão': resultado.taxa
                 }]);
-                console.log(); // Adiciona uma linha em branco
-                perguntar(); // Pergunta novamente
+                console.log(); 
+                perguntar();
               })
               .catch(error => {
                 console.log(error.message);
-                console.log(); // Adiciona uma linha em branco
+                console.log(); 
                 perguntar();
               });
           } catch (error) {
             console.log(error.message);
-            console.log(); // Adiciona uma linha em branco
+            console.log(); 
             perguntar();
           }
         });
       } catch (error) {
         console.log(error.message);
-        console.log(); // Adiciona uma linha em branco
+        console.log(); 
         perguntar();
       }
     });
